@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <article>0-1kg (4.9$)</article>
+    <article>1-5kg (4.5$)</article>
+    <article>5kg+ (4.1$)</article>
+    <input type="number" id="a" />
+    <button id="btn">Hesabla</button>
+    <h3 id="dollar"></h3>
+    <h3 id="azn"></h3>
+
+    <script>
+        const a = document.getElementById('a');
+        const btn = document.getElementById('btn');
+        const dollar = document.getElementById('dollar');
+        const azn = document.getElementById('azn');
+
+        function calculator() {
+            let x = a.value;
+            if (x > 0 && x <= 1) {
+                dollar.innerHTML = Math.floor((+x * 4.9)) + " Dollar " + ((+x * 4.9) - Math.floor((+x * 4.9))).toFixed(2) * 100 + " Cent";
+                azn.innerHTML = Math.floor((+x * 4.9 * 1.7)) + " Manat" + ((+x * 4.9 * 1.7) - Math.floor((+x * 4.9 * 1.7))).toFixed(2) * 100 + " Qepik";
+            } else if (x > 1 && x <= 5) {
+                dollar.innerHTML = Math.floor((+x * 4.5)) + " Dollar " + ((+x * 4.5) - Math.floor((+x * 4.5))).toFixed(2) * 100 + " Cent";
+                azn.innerHTML =Math.floor((+x * 4.5 * 1.7)) + " Manat " + ((+x * 4.5 * 1.7) - Math.floor((+x * 4.5 * 1.7))).toFixed(2) * 100 + " Qepik";
+
+            } else if (x > 5) {
+                dollar.innerHTML =Math.floor((+x * 4.1)) + " Dollar " + ((+x * 4.1) - Math.floor((+x * 4.1))).toFixed(2) * 100 + " Cent";
+                azn.innerHTML = Math.floor((+x * 4.1 * 1.7)) + " Manat " + ((+x * 4.1 * 1.7) - Math.floor((+x * 4.1 * 1.7))).toFixed(2) * 100 + " Qepik";
+
+            } else {
+                dollar.innerHTML = "Please enter a valid weight.";
+                azn.innerHTML=""
+            }
+        }
+
+        btn.addEventListener('click', calculator);
+    </script>
+</body>
+
+</html>
